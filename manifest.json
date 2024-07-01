@@ -1,0 +1,36 @@
+{
+"manifest_version": 2,
+"gecko": {
+    "id": "benshirley04@gmail.com"
+  },
+"name": "Grade Hider",
+  "version": "1.0",
+
+"description": "Removes all grade score references on nuku. Replaces them with pass/fail marks instead",
+
+  "icons": {
+    "48": "icons/logo.png"
+  },
+  "web_accessible_resources": [
+     "common.js"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://nuku.wgtn.ac.nz/courses/*/grades"],
+      "js": ["extension/dist/grade_page_remover.js"]
+    },
+    {
+      "matches": ["*://nuku.wgtn.ac.nz/courses/*/assignments"],
+      "js": ["extension/dist/assignment_page_remover.js"]
+    },
+    {
+      "matches": ["*://nuku.wgtn.ac.nz/courses/*/assignments/*"],
+      "js": ["extension/dist/indev_assignment_page_remover.js"]
+    },
+    {
+      "matches": ["*://apps.ecs.vuw.ac.nz/cgi-bin/studentmarks*"],
+      "js": ["extension/dist/ecs_page_remover.js"]
+    }
+  ]
+}
+
